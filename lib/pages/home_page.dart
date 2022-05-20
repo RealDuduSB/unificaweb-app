@@ -111,7 +111,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        title: Text("Shop generic"),
+        title: Text("UNIFICA WEB"),
+        backgroundColor: Colors.blue[700],
       ),
       body: Stack(children: [
         Container(
