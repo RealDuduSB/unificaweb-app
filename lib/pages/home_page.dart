@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:unificadawebapp/pages/config_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,6 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final TrocaTema trocaTema = TrocaTema();
+  List<String> items = ['Atléticas', 'Sistemática', 'Monarca', 'Odonto'];
+  String categoria = 'Atléticas';
+
   Widget _body() {
     return Container(
       width: double.infinity,
@@ -34,11 +39,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   IconButton(
                       onPressed: () {}, icon: Icon(Icons.filter_list_alt)),
-                  IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/checkout');
-                      },
-                      icon: Icon(Icons.shopping_cart))
+                  trocaTema,
                 ],
               ),
             ),
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text("Ofertas (-10%)",
+            Text("Novidades",
                 style: GoogleFonts.lato(fontSize: 27, color: Colors.black)),
             Container(
               height: 200,
@@ -83,24 +84,44 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
+            DropdownMenuItem(
+                child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DropdownButton<String>(
+                    value: categoria,
+                    icon: const Icon(Icons.toc),
+                    elevation: 16,
+                    style: const TextStyle(color: Colors.black),
+                    underline: Container(
+                      height: 2,
+                      color: Colors.black,
+                    ),
+                    items: items
+                        .map((item) => DropdownMenuItem(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: GoogleFonts.lato(
+                                  fontSize: 27.0,
+                                  color: Color.fromARGB(255, 0, 0, 0)),
+                            )))
+                        .toList(),
+                    onChanged: (item) => setState(() => categoria = item!),
+                  ),
+                ],
+              ),
+            )),
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text("Minha conta",
+              title: Text("Eventos",
                   style: GoogleFonts.lato(fontSize: 27, color: Colors.black)),
               onTap: () {
-                Navigator.of(context).pushNamed('/config');
+                Navigator.of(context).pushNamed('/eventos');
               },
             ),
             ListTile(
-              leading: Icon(Icons.draw),
-              title: Text("Configurações",
-                  style: GoogleFonts.lato(fontSize: 27, color: Colors.black)),
-              onTap: () {
-                Navigator.of(context).pushNamed('/config');
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.info_outline),
               title: Text("Sobre",
                   style: GoogleFonts.lato(fontSize: 27, color: Colors.black)),
               onTap: () {

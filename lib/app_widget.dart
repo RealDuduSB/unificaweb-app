@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:unificadawebapp/pages/eventos_page.dart';
 import 'package:unificadawebapp/pages/home_page.dart';
 
-import 'app_controller.dart';
-import 'pages/checkout_page.dart';
+import 'controller/config_controller.dart';
 import 'pages/config_page.dart';
 import 'pages/sobre_page.dart';
 
@@ -25,7 +25,7 @@ class AppWidget extends StatelessWidget {
                 '/home': (context) => HomePage(),
                 '/sobre': (context) => Sobre(),
                 '/config': (context) => ConfigPage(),
-                '/checkout': (context) => CheckOutPage(),
+                '/eventos': (context) => Eventos(),
               },
               debugShowCheckedModeBanner: false,
             ));
