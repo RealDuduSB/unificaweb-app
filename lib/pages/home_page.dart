@@ -20,20 +20,19 @@ class _HomePageState extends State<HomePage> {
       height: double.infinity,
       child: ListView(children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.max,
           children: [
-            /* BARRA DE PESQUISA
             Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.all(16),
                 height: 70,
-                width: 250,
+                width: 350,
                 child: TextFormField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Pesquisa",
                     icon: Icon(Icons.search),
                   ),
-                )),*/
+                )),
           ],
         ),
         SizedBox(height: 15),
@@ -48,7 +47,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               height: 100,
               width: 100,
-              color: Colors.orangeAccent,
+              color: Colors.blue,
             ),
           ],
         ),
@@ -64,9 +63,115 @@ class _HomePageState extends State<HomePage> {
               color: Colors.blue,
             ),
           ],
+        ),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                  topLeft: const Radius.circular(40.0),
+                  topRight: const Radius.circular(40.0),
+                )),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.grey,
+                        border: Border(
+                          left: BorderSide(
+                            color: Colors.blue,
+                            width: 3,
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                          "Desenvolvido pela atletica da UNIFRAN - Sistematica \n Desenvolvedores:",
+                          style: GoogleFonts.lato(
+                              fontSize: 15, color: Colors.black)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Image.network(
+                                  "assets/images/Eduardo.png",
+                                  height: 100,
+                                  width: 100,
+                                ),
+                                Text("Eduardo S. Borges",
+                                    style: GoogleFonts.lato(
+                                        fontSize: 15, color: Colors.black)),
+                                Image.network(
+                                  "assets/images/Gabriel.png",
+                                  height: 100,
+                                  width: 100,
+                                ),
+                                Text("Gabriel Neves",
+                                    style: GoogleFonts.lato(
+                                        fontSize: 15, color: Colors.black)),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  "assets/images/Speretta.png",
+                                  height: 100,
+                                  width: 100,
+                                ),
+                                Text("Joao Victor Speretta",
+                                    style: GoogleFonts.lato(
+                                        fontSize: 15, color: Colors.black)),
+                                Image.asset(
+                                  'assets/images/Chrystian.png',
+                                  height: 100,
+                                  width: 100,
+                                ),
+                                Text("Chrystian Alvarenga",
+                                    style: GoogleFonts.lato(
+                                        fontSize: 15, color: Colors.black)),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Column(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 100,
+                    color: Colors.black,
+                  ),
+                  Container(
+                    height: 100,
+                    width: 100,
+                    color: Colors.blue,
+                  ),
+                ],
+              ),
+            ],
+          ),
         )
       ]),
     );
+    //Bottom
   }
 
   @override
