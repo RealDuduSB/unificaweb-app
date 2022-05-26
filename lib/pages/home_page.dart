@@ -11,8 +11,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final TrocaTema trocaTema = TrocaTema();
-  List<String> items = ['Atléticas', 'Sistemática', 'Monarca', 'Odonto'];
-  String categoria = 'Atléticas';
+  List<String> items = ['Sistemática', 'Monarca', 'Odonto'];
+  String? categoria;
 
   Widget _body() {
     return Container(
@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            /* BARRA DE PESQUISA
             Container(
                 padding: EdgeInsets.all(10),
                 height: 70,
@@ -32,17 +33,7 @@ class _HomePageState extends State<HomePage> {
                     labelText: "Pesquisa",
                     icon: Icon(Icons.search),
                   ),
-                )),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                      onPressed: () {}, icon: Icon(Icons.filter_list_alt)),
-                  trocaTema,
-                ],
-              ),
-            ),
+                )),*/
           ],
         ),
         SizedBox(height: 15),
@@ -84,6 +75,13 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
+            ListTile(
+              title: Text('Inicio',
+                  style: GoogleFonts.lato(fontSize: 27, color: Colors.black)),
+              onTap: () {
+                Navigator.popAndPushNamed(context, '/home');
+              },
+            ),
             DropdownMenuItem(
                 child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -91,6 +89,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   DropdownButton<String>(
+                    hint: Text('Atléticas'),
                     value: categoria,
                     icon: const Icon(Icons.toc),
                     elevation: 16,
