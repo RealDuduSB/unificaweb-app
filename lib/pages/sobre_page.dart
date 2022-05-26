@@ -9,6 +9,7 @@ class Sobre extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Sobre"),
+        backgroundColor: Color.fromARGB(255, 5, 63, 110),
       ),
       body: Container(
         color: Colors.white,
