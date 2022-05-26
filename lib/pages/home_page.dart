@@ -21,19 +21,69 @@ class _HomePageState extends State<HomePage> {
       height: double.infinity,
       child: ListView(children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
                 padding: EdgeInsets.all(16),
                 height: 70,
-                width: 350,
+                width: 250,
                 child: TextFormField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: "Pesquisa",
-                    icon: Icon(Icons.search),
+                    hintText: "Pesquisa",
+                    hintStyle:
+                        GoogleFonts.lato(fontSize: 15, color: Colors.black),
+                    icon: Icon(
+                      Icons.search,
+                      color: Color.fromARGB(255, 5, 63, 110),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color.fromARGB(255, 5, 63, 110),
+                          width: 3,
+                        )),
                   ),
+                  //
                 )),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("Loja",
+                    style: GoogleFonts.lato(
+                      fontSize: 15,
+                      color: Color.fromARGB(255, 5, 63, 110),
+                    )),
+                Container(
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.store,
+                      color: Color.fromARGB(255, 5, 63, 110),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("Ingressos",
+                    style: GoogleFonts.lato(fontSize: 15, color: Colors.black)),
+                Container(
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.style_sharp,
+                      color: Color.fromARGB(255, 5, 63, 110),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
         SizedBox(height: 15),
@@ -54,14 +104,11 @@ class _HomePageState extends State<HomePage> {
         ),
         SizedBox(height: 15),
         Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Novidades",
-                style: GoogleFonts.lato(fontSize: 27, color: Colors.black)),
             Container(
-              height: 200,
-              width: 250,
-              color: Color.fromARGB(255, 5, 63, 110),
+              child: Text("Novidades",
+                  style: GoogleFonts.lato(fontSize: 27, color: Colors.black)),
             ),
           ],
         ),
@@ -84,19 +131,22 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: EdgeInsets.only(left: 12.0),
-                    height: 50,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      child: Text(
-                          "Desenvolvido pela atletica da UNIFRAN - Sistematica \n Desenvolvedores:",
-                          style: GoogleFonts.lato(
-                              fontSize: 15, color: Colors.black)),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10.0),
-                            bottomRight: Radius.circular(10.0)),
-                        color: Colors.white,
+                      padding: EdgeInsets.only(left: 12.0),
+                      height: 50,
+                      child: Container(
+                        child: Text(
+                            "Desenvolvido pela atletica da UNIFRAN - Sistemática",
+                            style: GoogleFonts.lato(
+                                fontSize: 15, color: Colors.black)),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(10.0),
+                              bottomRight: Radius.circular(10.0)),
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -299,7 +349,10 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text("UNIFICA WEB"),
+            Text(
+              "UNIFICA WEB",
+              style: GoogleFonts.lato(fontSize: 27, color: Colors.white),
+            ),
             Image.asset(
               "assets/images/SISTEMATICA LOGO.PNG",
               fit: BoxFit.contain,
